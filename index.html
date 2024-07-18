@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Model Canvas Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            height: 60px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            border-color: #00796b;
+        }
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #00796b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background: #004d40;
+        }
+        .suggestions {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .suggestions h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .suggestion-list {
+            margin-top: 5px;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .box {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Define different colors for each box */
+        .key-partners {
+            background-color: #ffc107;
+        }
+        .key-activities {
+            background-color: #9c27b0;
+        }
+        .key-resources {
+            background-color: #03a9f4;
+        }
+        .value-propositions {
+            background-color: #4caf50;
+        }
+        .customer-relationships {
+            background-color: #e91e63;
+        }
+        .channels {
+            background-color: #795548;
+        }
+        .customer-segments {
+            background-color: #ff5722;
+        }
+        .cost-structure {
+            background-color: #607d8b;
+        }
+        .revenue-streams {
+            background-color: #009688;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Business Model Canvas Generator</h1>
+        <div>
+            <!-- Add navigation links if needed -->
+        </div>
+    </div>
+    <div class="container">
+        <h2>Fill in Your Business Model Canvas</h2>
+        <form action="/generate" method="post">
+            <div class="box key-partners">
+                <label for="key_partners">Key Partners</label>
+                <textarea id="key_partners" name="key_partners" placeholder="Enter Key Partners..."></textarea>
+                <div class="suggestions" id="suggestions-key_partners">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box key-activities">
+                <label for="key_activities">Key Activities</label>
+                <textarea id="key_activities" name="key_activities" placeholder="Enter Key Activities..."></textarea>
+                <div class="suggestions" id="suggestions-key_activities">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box key-resources">
+                <label for="key_resources">Key Resources</label>
+                <textarea id="key_resources" name="key_resources" placeholder="Enter Key Resources..."></textarea>
+                <div class="suggestions" id="suggestions-key_resources">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box value-propositions">
+                <label for="value_propositions">Value Propositions</label>
+                <textarea id="value_propositions" name="value_propositions" placeholder="Enter Value Propositions..."></textarea>
+                <div class="suggestions" id="suggestions-value_propositions">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box customer-relationships">
+                <label for="customer_relationships">Customer Relationships</label>
+                <textarea id="customer_relationships" name="customer_relationships" placeholder="Enter Customer Relationships..."></textarea>
+                <div class="suggestions" id="suggestions-customer_relationships">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box channels">
+                <label for="channels">Channels</label>
+                <textarea id="channels" name="channels" placeholder="Enter Channels..."></textarea>
+                <div class="suggestions" id="suggestions-channels">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box customer-segments">
+                <label for="customer_segments">Customer Segments</label>
+                <textarea id="customer_segments" name="customer_segments" placeholder="Enter Customer Segments..."></textarea>
+                <div class="suggestions" id="suggestions-customer_segments">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box cost-structure">
+                <label for="cost_structure">Cost Structure</label>
+                <textarea id="cost_structure" name="cost_structure" placeholder="Enter Cost Structure..."></textarea>
+                <div class="suggestions" id="suggestions-cost_structure">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box revenue-streams">
+                <label for="revenue_streams">Revenue Streams</label>
+                <textarea id="revenue_streams" name="revenue_streams" placeholder="Enter Revenue Streams..."></textarea>
+                <div class="suggestions" id="suggestions-revenue_streams">
+                    <h3>Suggestions:</h3>
+                    <ul class="suggestion-list">
+                        <!-- Suggestions will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <input type="submit" value="Generate PPT">
+        </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Business Model Canvas Generator | Developed by Lakshmisimha Reddy</p>
+    </div>
+
+    <script>
+        // Example suggestions (you can customize these as needed)
+        const suggestions = {
+            key_partners: [
+                "Strategic alliances",
+                "Supplier partnerships",
+                "Co-branding opportunities",
+                "Joint ventures"
+            ],
+            key_activities: [
+                "Production",
+                "Sales and marketing",
+                "Customer support",
+                "Research and development"
+            ],
+            key_resources: [
+                "Physical resources",
+                "Intellectual resources",
+                "Human resources",
+                "Financial resources"
+            ],
+            value_propositions: [
+                "Product leadership",
+                "Operational excellence",
+                "Customer intimacy",
+                "Innovation"
+            ],
+            customer_relationships: [
+                "Personal assistance",
+                "Dedicated personal assistance",
+                "Self-service",
+                "Automated services"
+            ],
+            channels: [
+                "Direct sales",
+                "Online sales",
+                "Retail",
+                "Wholesale"
+            ],
+            customer_segments: [
+                "Mass market",
+                "Niche market",
+                "Segmented",
+                "Diversified"
+            ],
+            cost_structure: [
+                "Fixed costs",
+                "Variable costs",
+                "Economies of scale",
+                "Economies of scope"
+            ],
+            revenue_streams: [
+                "Asset sale",
+                "Usage fee",
+                "Subscription fees",
+                "Licensing"
+            ]
+            // Add more suggestions for other fields as needed
+        };
+
+        // Function to update suggestions based on textarea input
+        function updateSuggestions(textareaId) {
+            const textarea = document.getElementById(textareaId);
+            const suggestionsDiv = document.getElementById(`suggestions-${textareaId}`);
+
+            // Clear previous suggestions
+            suggestionsDiv.querySelector(".suggestion-list").innerHTML = "";
+
+            // Generate new suggestions based on textarea content
+            if (textarea.value.trim() !== "") {
+                suggestions[textareaId].forEach(suggestion => {
+                    const li = document.createElement("li");
+                    li.textContent = suggestion;
+                    suggestionsDiv.querySelector(".suggestion-list").appendChild(li);
+                });
+            }
+        }
+
+        // Event listeners for each textarea to update suggestions dynamically
+        document.getElementById("key_partners").addEventListener("input", function() {
+            updateSuggestions("key_partners");
+        });
+
+        document.getElementById("key_activities").addEventListener("input", function() {
+            updateSuggestions("key_activities");
+        });
+
+        document.getElementById("key_resources").addEventListener("input", function() {
+            updateSuggestions("key_resources");
+        });
+
+        document.getElementById("value_propositions").addEventListener("input", function() {
+            updateSuggestions("value_propositions");
+        });
+
+        document.getElementById("customer_relationships").addEventListener("input", function() {
+            updateSuggestions("customer_relationships");
+        });
+
+        document.getElementById("channels").addEventListener("input", function() {
+            updateSuggestions("channels");
+        });
+
+        document.getElementById("customer_segments").addEventListener("input", function() {
+            updateSuggestions("customer_segments");
+        });
+
+        document.getElementById("cost_structure").addEventListener("input", function() {
+            updateSuggestions("cost_structure");
+        });
+
+        document.getElementById("revenue_streams").addEventListener("input", function() {
+            updateSuggestions("revenue_streams");
+        });
+    </script>
+</body>
+</html>
